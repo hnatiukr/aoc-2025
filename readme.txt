@@ -1,4 +1,4 @@
-Advent of Code 2024 in Python
+Advent of Code 2025 in Python
 
 https://adventofcode.com/
 
