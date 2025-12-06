@@ -1,18 +1,17 @@
-from lib import read_input
+from lib import read_input_lines
 
 INPUT = "day01/input.txt"
 
 
 def parse_rotation(rotation):
-    """convert rotations (L5, R3, etc) to signed movement (-5, 3)"""
-
     direction = -1 if rotation[0] == "L" else 1
     offset = int(rotation[1:])
+
     return direction * offset
 
 
 def part_1(input_path: str):
-    movements = [parse_rotation(rotation) for rotation in read_input(input_path)]
+    movements = [parse_rotation(rotation) for rotation in read_input_lines(input_path)]
 
     position = 50
     zero_crossings = 0
@@ -25,8 +24,6 @@ def part_1(input_path: str):
 
 
 def count_zero_crossings(movement: int, position: int):
-    """how many times position crosses zero during movement"""
-
     start = position if movement > 0 else 100 - position
     end = start + abs(movement)
     count = (end // 100) - (start // 100)
@@ -35,7 +32,7 @@ def count_zero_crossings(movement: int, position: int):
 
 
 def part_2(input_path: str):
-    movements = [parse_rotation(rotation) for rotation in read_input(input_path)]
+    movements = [parse_rotation(rotation) for rotation in read_input_lines(input_path)]
 
     position = 50
     zero_crossings = 0
